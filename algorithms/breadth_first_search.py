@@ -1,5 +1,5 @@
 '''
-Depth first search algorithm
+Breadth first search algorithm
 
 Let V denote the # of vertices in the graph, let E denote the # of edges in the graph.
 The time complexity for BFS is O(V + E) as each vertex has O(1) visit complexity
