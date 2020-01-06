@@ -29,58 +29,42 @@ class SinglyLinkedList:
         '''
         O(1) append operation to the end of the list due to the reference to the tail
 
-        Edge cases:
-        1) list is empty
-        2) list contains one element
-        3) list contains > one element
+        If there's a tail, update the pointer
+        If not the tail will be set
+        If the list is empty then set the head aswell
 
         :param data: the data to be stored in the new node
         :return:
         '''
 
-        # case: list is empty
         node = Node(data)
+        if self.tail:
+            self.tail.next = node
+
+        self.tail = node
+
         if not self.head:
             self.head = node
-            self.tail = self.head
-
-        # case: list has one element
-        elif not self.head.next:
-              self.head.next = node
-              self.tail = node
-        # case: list has > one element
-        else:
-            self.tail.next = node
-            self.tail = node
 
     def prepend(self, data):
         '''
         O(1) prepend operation to the beginning of the list
 
-        Edge cases:
-        1) list is empty
-        2) list contains one element
-        3) list contains > one element
+        If the list is not empty then move the pointers
+        Set the head of the list
+        If we don't have a tail then point tail to the node
 
         :param data: the data to be stored in the new node
         :return:
         '''
-
-        # case: list is empty
         node = Node(data)
-        if not self.head:
-            self.head = node
-            self.tail = self.head
+        if self.head:
+            node.next = self.head
 
-        # case: list has one element
-        elif not self.head.next:
-            node.next = self.head
-            self.tail = self.head
-            self.head = node
-        # case: list has > one element
-        else:
-            node.next = self.head
-            self.head = node
+        self.head = node
+
+        if not self.tail:
+            self.tail = node
 
 
     def delete_with_value(self, data):
@@ -173,7 +157,7 @@ if __name__ == '__main__':
     while node:
         arr.append(node.data)
         node = node.next
-    print('Prepend test')
+    print('Delete test')
     print(arr)
 
 
