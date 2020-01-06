@@ -23,3 +23,4 @@ Moreover, every file contains a main script with some simple test cases to verif
 
 * Singly linked list 
 * Doubly linked list 
+* FIFO queue
