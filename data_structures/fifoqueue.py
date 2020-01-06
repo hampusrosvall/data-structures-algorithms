@@ -13,12 +13,12 @@ class Node:
         self.data = data
         self.next = None
 
-class Queue:
+class FIFOq:
     def __init__(self):
         self.head = None
         self.tail = None
 
-    def enqueue(self, data):
+    def insert(self, data):
         '''
         Adds a node containing data to the end of the queue
 
@@ -29,7 +29,6 @@ class Queue:
         :return:
         '''
 
-        # if queue is empty
         node = Node(data)
         if self.tail:
             self.tail.next = node
@@ -39,12 +38,21 @@ class Queue:
         if not self.head:
             self.head = node
 
-    def dequeue(self):
+    def remove(self):
         '''
         Pops the element first in line
         :return: removes the first node in line and returns the data
         '''
-        pass
+        if not self.empty():
+            data = self.head.data
+            self.head = self.head.next
+
+            if not self.head:
+                self.tail = None
+
+            return data
+
+        return None
 
     def empty(self):
         '''
@@ -59,3 +67,19 @@ class Queue:
 
         :return: the data stored in the node first in line
         '''
+
+        return self.head.data
+
+if __name__ == '__main__':
+    q = FIFOq()
+
+    for val in range(10):
+        q.insert(val)
+
+    arr = []
+    data = q.remove()
+    while data is not None:
+        arr.append(data)
+        data = q.remove()
+
+    print(arr)
