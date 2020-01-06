@@ -24,3 +24,8 @@ Moreover, every file contains a main script with some simple test cases to verif
 * Singly linked list 
 * Doubly linked list 
 * FIFO queue
+* LIFO queue (stack)
+
+# Running the code 
+
+Simply clone down the repository and run the following line `python3 <name_of_folder/name_of_script.py>` in your terminal in order to run any provided file. 
