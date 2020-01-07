@@ -29,40 +29,44 @@ class BinarySearchTree:
     def insert(self, data):
         if not self.root:
             self.root = Node(data)
-            return
-
-        if data < self.data:
-            if not self.left:
-                self.left = Node(data)
-            else:
-                # make sure to make the recusive call with respect to the left node
-                self.left.insert(data)
-
         else:
-            if not self.right:
-                self.right = Node(data)
+            self.insert_recursively(data, self.root)
+
+    def insert_recursively(self, data, root):
+        if data < root.data:
+            if not root.left:
+                root.left = Node(data)
             else:
-                # make sure to make the recursive call with respect to the right node
-                self.right.insert(data)
-
-    def get_values(self):
-        '''
-        traverse the tree in order i.e. left -> root -> right
-        append the values to a list and return it
-        O(N) space time operation
-        :return:
-        '''
-        arr = []
-        self.get_values_recursive(self.root, arr)
-        return arr
-
-    def get_values_recursive(self, root, array):
-        if not root.left:
-            array.append(root.data)
+                self.insert_recursively(data, root.left)
         else:
-            self.get_values_recursive(root.left)
-            array.append(root.data)
-            self.get_values_recursive(root.right)
+            if not root.right:
+                root.right = Node(data)
+            else:
+                self.insert_recursively(data, root.right)
+
+    def contains(self, data):
+        return self.contains_recursive(self.root, data)
+
+    def contains_recursive(self, root, data):
+        if root.data == data:
+            return True
+        elif data < root.data:
+            if root.left:
+                return self.contains_recursive(root.left, data)
+        else:
+            if root.right:
+                return self.contains_recursive(root.right, data)
+
+        return False
+
+    def in_order_traversal(self):
+        self.in_order_traversal_recursive(self.root)
+
+    def in_order_traversal_recursive(self, root):
+        if root:
+            self.in_order_traversal_recursive(root.left)
+            print(root.data)
+            self.in_order_traversal_recursive(root.right)
 
 
 
@@ -71,7 +75,9 @@ if __name__ == '__main__':
     bst.insert(10)
     bst.insert(5)
     bst.insert(15)
+    bst.insert(3)
+    bst.insert(20)
 
+    bst.in_order_traversal()
 
-    print(bst.get_values())
-
+    print(bst.contains(20))
