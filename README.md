@@ -17,6 +17,10 @@ Moreover, every file contains a main script with some simple test cases to verif
 * Breadth first search 
 * Depth first search 
 
+### Recursion
+
+* Fibionacci sequence (memoized and non memoized)
+
 ## Data Structures 
 
 ### List data structures 
@@ -25,6 +29,10 @@ Moreover, every file contains a main script with some simple test cases to verif
 * Doubly linked list 
 * FIFO queue
 * LIFO queue (stack)
+
+### Tree data structures 
+* Binary search tree - recursive implementation 
+* Binary search tree - iterative implementation 
 
 # Running the code 
 
