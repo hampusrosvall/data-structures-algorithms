@@ -23,6 +23,7 @@ def binary_search_iteratively(array, value, left, right):
         if left > right:
             return False
 
+        # floor division
         mid = (left + right) // 2
 
         # check if we have found the value
