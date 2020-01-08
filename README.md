@@ -21,6 +21,11 @@ Moreover, every file contains a main script with some simple test cases to verif
 
 * Fibionacci sequence (memoized and non memoized)
 
+### Search algorithms 
+
+* Binary search - iterative implementation 
+* Binary search - recursive implementation 
+
 ## Data Structures 
 
 ### List data structures 
