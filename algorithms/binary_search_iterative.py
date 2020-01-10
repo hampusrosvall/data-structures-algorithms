@@ -41,3 +41,4 @@ if __name__ == '__main__':
 
     assert True == binary_search(array, 61)
     assert False == binary_search(array, -1)
+
